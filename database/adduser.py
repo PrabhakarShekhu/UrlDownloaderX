@@ -1,4 +1,4 @@
-from pyrogram import Botly
+from pyrogram import Client
 from database.access import botly
 from pyrogram.types import Message
 
