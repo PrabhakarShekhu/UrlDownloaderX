@@ -14,5 +14,5 @@ async def sts(c, m):
 @Botly.on_message(filters.private & filters.command("search"))
 async def serc(bot, update):
 
-      await bot.send_message(chat_id=update.chat.id, text="🔍 TORRENT SEARCH", 
+      await bot.send_message(chat_id=update.chat.id, text="Nothing to search send me link I will download and upload it to telegram for you.", 
       parse_mode="html", reply_markup=Button.BUTTONS01)
