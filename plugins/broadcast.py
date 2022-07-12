@@ -1,7 +1,7 @@
 import traceback, datetime, asyncio, string, random, time, os, aiofiles, aiofiles.os
-from database.access import clinton
+from database.access import botly
 from pyrogram import filters
-from pyrogram import Client as Clinton
+from pyrogram import Client as Botly
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram.errors import FloodWait, InputUserDeactivated, UserIsBlocked, PeerIdInvalid
 
@@ -25,11 +25,11 @@ async def send_msg(user_id, message):
         return 500, f"{user_id} : {traceback.format_exc()}\n"
         
 
-@Clinton.on_message(filters.private & filters.command('broadcast') & filters.reply)
+@Botly.on_message(filters.private & filters.command('broadcast') & filters.reply)
 async def broadcast_(c, m):
     if m.from_user.id != Config.OWNER_ID:
         return
-    all_users = await clinton.get_all_users()
+    all_users = await botly.get_all_users()
     
     broadcast_msg = m.reply_to_message
     
@@ -42,7 +42,7 @@ async def broadcast_(c, m):
         text = f"Broadcast initiated! You will be notified with log file when all the users are notified."
     )
     start_time = time.time()
-    total_users = await clinton.total_users_count()
+    total_users = await botly.total_users_count()
     done = 0
     failed = 0
     success = 0
@@ -70,7 +70,7 @@ async def broadcast_(c, m):
                 failed += 1
             
             if sts == 400:
-                await clinton.delete_user(user['id'])
+                await botly.delete_user(user['id'])
             
             done += 1
             if broadcast_ids.get(broadcast_id) is None:
