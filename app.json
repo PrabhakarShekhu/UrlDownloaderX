@@ -2,7 +2,7 @@
   "name": "Uploader Downloader ZX",
   "description": "Telegram Bot to Upload URLs to Telegram as File and Video.",
   "keywords": [ "URL UPLOADER"],
-  "success_url": "https://t.me/UrlDownloaderZX_bot",
+  "success_url": "https://telegram.me/UrlDownloaderZX_bot",
   "website": "https://telegram.me/ZX_bots",
   "repository": "https://telegram.me/ZX_bots",
 
